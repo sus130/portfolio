@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('illustration-anime-city.jpg') no-repeat center center/cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #fff;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        a:hover {
+            background: #fff;
+            color: #434343;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            background: #fff;
+            color: #434343;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        button:hover {
+            background: #434343;
+            color: #fff;
+        }
+        .player-container {
+            display: none;
+            margin-top: 20px;
+        }
+        video, audio {
+            margin: 20px 0;
+            border: 2px solid #fff;
+            border-radius: 10px;
+        }
+        .audio-player {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .audio-player h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .audio-player img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #fff;
+        }
+        .audio-player audio {
+            width: 100%;
+            max-width: 400px;
+            outline: none;
+        }
+        .audio-player p {
+            margin-top: 10px;
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+
+    <h1 id="choose-text">Choose Your Player</h1>
+    <div id="player-options">
+        <button onclick="showPlayer('video')">Video Player</button>
+        <button onclick="showPlayer('audio')">MP3 Player</button>
+    </div>
+
+    <div id="video-player" class="player-container">
+        <h2>Video Player</h2>
+        <video controls width="600">
+            <source src="Rickroll (Meme Template).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <div id="audio-player" class="player-container">
+        <div class="audio-player">
+            <h2>MP3 Player</h2>
+            <img src="ishqthumb.jpeg" alt="Song Thumbnail">
+            <audio controls>
+                <source src="ishq.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+            <p>Now Playing: ISHQ - Faheem Abdullah, Rauhan Malik</p>
+            <button onclick="goBack()">Back</button>
+        </div>
+    </div>
+
+    <script>
+        function showPlayer(type) {
+            // Hide the "Choose Your Player" text and player options
+            document.getElementById('choose-text').style.display = 'none';
+            document.getElementById('player-options').style.display = 'none';
+
+            // Hide both players initially
+            document.getElementById('video-player').style.display = 'none';
+            document.getElementById('audio-player').style.display = 'none';
+
+            // Show the selected player
+            if (type === 'video') {
+                document.getElementById('video-player').style.display = 'block';
+            } else if (type === 'audio') {
+                document.getElementById('audio-player').style.display = 'block';
+            }
+        }
+
+        function goBack() {
+            // Show the "Choose Your Player" text and player options
+            document.getElementById('choose-text').style.display = 'block';
+            document.getElementById('player-options').style.display = 'block';
+
+            // Hide both players
+            document.getElementById('video-player').style.display = 'none';
+            document.getElementById('audio-player').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
