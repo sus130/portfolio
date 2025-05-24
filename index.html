@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -18,15 +19,18 @@
             height: 100vh;
             text-align: center;
         }
+
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
         }
+
         h2 {
             font-size: 1.5em;
             font-weight: 300;
             margin-bottom: 20px;
         }
+
         img {
             width: 150px;
             height: 150px;
@@ -34,13 +38,15 @@
             margin-bottom: 20px;
             border: 3px solid #fff;
         }
+
         p {
             font-size: 1.2em;
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto 20px;
         }
-        a {
+
+        a, button {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
@@ -48,11 +54,15 @@
             padding: 10px 20px;
             border-radius: 25px;
             transition: background 0.3s ease, color 0.3s ease;
+            background: transparent;
+            cursor: pointer;
         }
-        a:hover {
+
+        a:hover, button:hover {
             background: #fff;
             color: #434343;
         }
+
         footer {
             position: absolute;
             bottom: 20px;
@@ -70,8 +80,9 @@
     </p>
     <div style="display: flex; gap: 20px; justify-content: center;">
         <a href="https://www.linkedin.com/in/susmit-roy-116902271/">Contact Me</a>
-        <a href="projects.html" style="background: #fff; color: #434343;">My Projects</a>
+        <a href="projects.html">My Projects</a>
     </div>
+
     <footer>
         &copy; 2025 Susmit Roy. All rights reserved.
     </footer>
