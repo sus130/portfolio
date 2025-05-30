@@ -3,89 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="/profile.jpeg" />
-    <title>Professional Portfolio</title>
+    <link rel="icon" type="image/jpg" href="profile.jpeg" />
+    <title>Susmit Roy | Professional Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background: url('abstract-image.jpg') no-repeat center center/cover;
-            color: #fff;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://public.youware.com/users-website-assets/prod/a78e0266-d1dc-4118-a0b9-9b31318045e2/g942c7110f3277161842199c0a15c7b9330fb53611b7f6df04ffec39d54094f11948f8382acc3df7def337e3b18cbbb698f8f8cdddc6cde6ec08a93a313690231_640.jpg') no-repeat center center/cover;
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
         }
 
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+        }
+
+        .profile {
+            margin: 180px 0 30px; /* Increased top margin to push profile pic even lower */
+        }
+
         h1 {
-            font-size: 3em;
+            font-size: 3.5rem;
             margin-bottom: 10px;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 10s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         h2 {
-            font-size: 1.5em;
+            font-size: 1.5rem;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            color: #bdc3c7;
         }
 
-        img {
-            width: 150px;
-            height: 150px;
+        .profile-img {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid #fff;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border: 4px solid var(--accent-color);
+            padding: 5px;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
         }
 
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto 20px;
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.4);
+            }
+            50% {
+                transform: translateY(-10px);
+                box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+            }
+            100% {
+                transform: translateY(0px);
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.4);
+            }
         }
 
-        a, button {
-            color: #fff;
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: #2ecc71;
+        }
+
+        .bio {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .bio::before, .bio::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .bio::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .bio::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            color: var(--text-light);
             text-decoration: none;
-            font-weight: bold;
-            border: 2px solid #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: background 0.3s ease, color 0.3s ease;
-            background: transparent;
-            cursor: pointer;
+            font-weight: 500;
+            border: 2px solid var(--accent-color);
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        a:hover, button:hover {
-            background: #fff;
-            color: #434343;
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.9em;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(0, 0, 0, 0.3);
+            margin-top: auto;
+        }
+
+        /* Skills section */
+        .skills {
+            margin: 30px 0;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .skills-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(52, 152, 219, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: rgba(52, 152, 219, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .bio {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 100;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Susmit Roy</h1>
-    <h2>Web Developer | Designer | Creator</h2>
-    <img src="profile.jpeg" alt="Susmit Roy's Photo">
-    <p>
-        Hello! I'm Susmit Roy, a creative web developer and designer with a passion for crafting visually stunning and highly functional websites. Let's collaborate to bring your ideas to life!
-    </p>
-    <div style="display: flex; gap: 20px; justify-content: center;">
-        <a href="https://www.linkedin.com/in/susmit-roy-116902271/">Contact Me</a>
-        <a href="projects.html">My Projects</a>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">SR</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container" id="home">
+        <div class="profile">
+            <img src="profile.jpeg" alt="Susmit Roy's Photo" class="profile-img">
+            <h1>Susmit Roy</h1>
+            <h2>Web Developer | Designer | Creator</h2>
+        </div>
+
+        <p class="bio" id="about">
+            Hi, I'm Susmit Roy.<br>
+            I'm a web developer and student at VIT Bhopal, where I'm studying Computer Science with a focus on AI. I love building websites that are not just functional but also enjoyable to use.<br><br>
+            Right now, I'm learning how to blend web development with artificial intelligence—imagining how smart, intuitive websites of the future might work. I enjoy working with HTML, CSS, JavaScript, and exploring new tools that make the web better.<br><br>
+            When I'm not coding, you might find me reading about tech, experimenting with new projects, or just enjoying a good cup of coffee. I'm always open to interesting ideas and collaborations, so feel free to reach out!<br><br>
+            Check out my work below and connect with me.
+        </p>
+        
+        <div class="skills">
+            <h3 class="skills-title">My Skills</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">WordPress</span>
+                <span class="skill-tag">Node.js</span>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://github.com/sus130" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/susmit-roy-116902271/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/SusmitR41279497" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/sushiwmeat/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="cta-buttons" id="contact">
+            <a href="mailto:susmit.roy.2006@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email Me</a>
+            <a href="projects.html" class="btn"><i class="fas fa-code"></i> View Projects</a>
+            <a href="SusmitRoy_InternshalaResume.pdf" class="btn" id="download-resume" download><i class="fas fa-download"></i> Download CV</a>
+        </div>
     </div>
 
     <footer>
         &copy; 2025 Susmit Roy. All rights reserved.
     </footer>
+
+    <script>
+        
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+            
+    
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                document.getElementById('navLinks').classList.remove('active');
+                
+                // Change hamburger icon back
+                const icon = document.querySelector('.hamburger i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll event for navbar styling
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 0';
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            } else {
+                nav.style.padding = '20px 0';
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            }
+        });
+    </script>
 </body>
 </html>
