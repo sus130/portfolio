@@ -27,8 +27,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
-                        url('abstract-image.jpg') no-repeat center center/cover;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 25%, #2c5364 50%, #1e3c72 75%, #2a5298 100%);
+            background-attachment: fixed;
             color: var(--text-light);
             min-height: 100vh;
             display: flex;
@@ -306,6 +306,148 @@
             transform: translateY(-3px);
         }
 
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: #bdc3c7;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 2rem;
+            margin: 40px 0 25px;
+            color: var(--accent-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        /* Career Objective */
+        .career-objective {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .career-objective p {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Education Section */
+        .education-section, .certifications-section, .projects-section, .activities-section, .languages-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .education-items, .cert-items, .project-items, .activity-items {
+            display: grid;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .education-item, .cert-item, .project-item, .activity-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .education-item:hover, .cert-item:hover, .project-item:hover, .activity-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .education-item h4, .cert-item h4, .project-item h4, .activity-item h4 {
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .institution {
+            color: #3498db;
+            font-weight: 500;
+            margin: 5px 0;
+        }
+
+        .duration {
+            color: #95a5a6;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .percentage {
+            color: #2ecc71;
+            font-weight: 500;
+            margin: 5px 0;
+        }
+
+        .project-desc {
+            color: #bdc3c7;
+            line-height: 1.6;
+            margin-top: 10px;
+            text-align: justify;
+        }
+
+        .view-all-projects {
+            display: inline-flex;
+            margin: 25px auto;
+        }
+
+        /* Languages Section */
+        .languages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .language-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .activity-item i {
+            color: var(--accent-color);
+            margin-right: 8px;
+        }
+
         /* Media Queries */
         @media screen and (max-width: 768px) {
             h1 {
@@ -324,6 +466,24 @@
             .bio {
                 font-size: 1rem;
                 padding: 0 15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .education-item h4, .cert-item h4, .project-item h4, .activity-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .languages-container {
+                grid-template-columns: 1fr;
             }
 
             .nav-links {
@@ -364,6 +524,14 @@
                 width: 120px;
                 height: 120px;
             }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .career-objective, .education-item, .cert-item, .project-item, .activity-item {
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -390,6 +558,12 @@
             <h2>Web Developer | Designer | Creator</h2>
         </div>
 
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> susmit.roy.2006@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 7872434869</p>
+            <p><i class="fas fa-map-marker-alt"></i> Barrackpore</p>
+        </div>
+
         <p class="bio" id="about">
             Hi, I'm Susmit Roy.<br>
             I'm a web developer and student at VIT Bhopal, where I'm studying Computer Science with a focus on AI. I love building websites that are not just functional but also enjoyable to use.<br><br>
@@ -397,20 +571,174 @@
             When I'm not coding, you might find me reading about tech, experimenting with new projects, or just enjoying a good cup of coffee. I'm always open to interesting ideas and collaborations, so feel free to reach out!<br><br>
             Check out my work below and connect with me.
         </p>
+
+        <section class="career-objective">
+            <h3 class="section-title">Career Objective</h3>
+            <p>Hardworking and adaptable Integrated M.Tech CSE (AI) student seeking an internship to apply technical skills, gain industry exposure, and contribute to innovative projects through leadership, teamwork, and continuous learning.</p>
+        </section>
+
+        <section class="education-section">
+            <h3 class="section-title">Education</h3>
+            <div class="education-items">
+                <div class="education-item">
+                    <h4>Integrated B.Tech & M.Tech, Computer Science</h4>
+                    <p class="institution">VIT Bhopal University</p>
+                    <p class="duration">2024 - 2029</p>
+                </div>
+                <div class="education-item">
+                    <h4>Senior Secondary (XII), CBSE - Science</h4>
+                    <p class="institution">Army Public School Barrackpore</p>
+                    <p class="duration">2024</p>
+                    <p class="percentage">Percentage: 87.00%</p>
+                </div>
+                <div class="education-item">
+                    <h4>Secondary (X), CBSE</h4>
+                    <p class="institution">Army Public School Barrackpore</p>
+                    <p class="duration">2022</p>
+                    <p class="percentage">Percentage: 92.00%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="certifications-section">
+            <h3 class="section-title">Trainings / Certifications</h3>
+            <div class="cert-items">
+                <div class="cert-item">
+                    <h4>Artificial Intelligence & Machine Learning Immersion Program</h4>
+                    <p class="institution">National University of Singapore, Singapore</p>
+                    <p class="duration">Dec 2025</p>
+                </div>
+                <div class="cert-item">
+                    <h4>UI / UX For Beginners</h4>
+                    <p class="institution">Great Learning, Virtual</p>
+                    <p class="duration">Oct 2024</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Introduction To Artificial Intelligence</h4>
+                    <p class="institution">Great Learning, Virtual</p>
+                    <p class="duration">Oct 2024</p>
+                </div>
+                <div class="cert-item">
+                    <h4>SQL (Advanced)</h4>
+                    <p class="institution">Hackerrank, Virtual</p>
+                    <p class="duration">Sep 2024</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Python (Basic)</h4>
+                    <p class="institution">Hackerrank, Virtual</p>
+                    <p class="duration">Sep 2024</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Python Essentials</h4>
+                    <p class="institution">Vityarthi, Virtual</p>
+                    <p class="duration">Sep 2024 - Dec 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h3 class="section-title">Featured Projects</h3>
+            <div class="project-items">
+                <div class="project-item">
+                    <h4>AI-Powered-Malicious-URL-Detection</h4>
+                    <p class="duration">Dec 2025</p>
+                    <p class="project-desc">AI-Powered Malicious URL Detection leverages machine learning and deep learning architectures to proactively identify and neutralize cyber threats by analyzing the structural and behavioral characteristics of web links in real-time. Unlike traditional blacklisting, which relies on reactive databases of known threats, AI-driven systems perform granular lexical analysis and host-based profiling to detect sophisticated "zero-day" phishing, malware, and ransomware attacks before they are reported.</p>
+                </div>
+                <div class="project-item">
+                    <h4>AI-Based Jurisdiction and Law Management</h4>
+                    <p class="duration">Jul 2025 - Oct 2025</p>
+                    <p class="project-desc">AI-Based Jurisdiction and Law Management integrates advanced machine learning and natural language processing to navigate the intricate landscape of global legal frameworks, offering a centralized system for tracking, interpreting, and applying laws across diverse regions. By automating the identification of relevant statutes, predicting judicial outcomes through historical case analysis, and ensuring real-time compliance with evolving regulations.</p>
+                </div>
+                <div class="project-item">
+                    <h4>Media Player for Browser</h4>
+                    <p class="duration">May 2025</p>
+                    <p class="project-desc">A simple web-based media player built using HTML, CSS, and JavaScript. It can play audio and video files directly in the browser. Features include play/pause, volume control, seek bar, fullscreen mode, and responsive design.</p>
+                </div>
+                <div class="project-item">
+                    <h4>Console Based Ticket Booking System</h4>
+                    <p class="duration">Mar 2025 - Apr 2025</p>
+                    <p class="project-desc">VITGo is a robust C++ console-based transport booking system designed to simulate real-world ticketing for both trains and flights. It offers user registration, admin control, booking and cancellation features, seat management, and a simulated UPI-based payment system—all within a file-driven backend architecture.</p>
+                </div>
+                <div class="project-item">
+                    <h4>Portfolio Website</h4>
+                    <p class="duration">May 2025 - Present</p>
+                    <p class="project-desc">A personal website featuring an About Me section highlighting my background and interests, a My Projects section showcasing my work, and a Contact page with a form for direct communication. The site is designed with a clean, responsive layout and built using modern web technologies.</p>
+                </div>
+            </div>
+            <a href="projects.html" class="btn view-all-projects"><i class="fas fa-arrow-right"></i> View All Projects</a>
+        </section>
         
         <div class="skills">
             <h3 class="skills-title">My Skills</h3>
             <div class="skills-container">
-                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">C Programming</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">HTML 5</span>
+                <span class="skill-tag">CSS</span>
                 <span class="skill-tag">CSS3</span>
                 <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">UI/UX Design</span>
-                <span class="skill-tag">Responsive Design</span>
-                <span class="skill-tag">WordPress</span>
-                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Manual Testing</span>
+                <span class="skill-tag">Software Testing</span>
+                <span class="skill-tag">MS-Excel</span>
+                <span class="skill-tag">Usability Testing</span>
+                <span class="skill-tag">Database Testing</span>
+                <span class="skill-tag">Adobe After Effects</span>
+                <span class="skill-tag">Adobe Photoshop</span>
+                <span class="skill-tag">Adobe Premiere Pro</span>
+                <span class="skill-tag">Microsoft 365</span>
+                <span class="skill-tag">MS-Office</span>
+                <span class="skill-tag">MS-PowerPoint</span>
+                <span class="skill-tag">Microsoft Outlook</span>
+                <span class="skill-tag">Circuit Modeling & Simulation</span>
+                <span class="skill-tag">Cybersecurity</span>
+                <span class="skill-tag">Ethical Hacking</span>
+                <span class="skill-tag">Teamwork</span>
+                <span class="skill-tag">Data Entry</span>
+                <span class="skill-tag">Data Extraction</span>
             </div>
         </div>
+
+        <section class="languages-section">
+            <h3 class="section-title">Languages</h3>
+            <div class="languages-container">
+                <div class="language-item">
+                    <p><strong>English:</strong> Proficient (Spoken & Written)</p>
+                </div>
+                <div class="language-item">
+                    <p><strong>Bengali:</strong> Proficient (Spoken)</p>
+                </div>
+                <div class="language-item">
+                    <p><strong>Hindi:</strong> Proficient (Spoken & Written)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="activities-section">
+            <h3 class="section-title">Extra Curricular Activities</h3>
+            <div class="activity-items">
+                                <div class="activity-item">
+                                    <h4><i class="fas fa-language"></i> The Bengali Club Society - Technical Lead</h4>
+                                    <p>Drives the digital and infrastructural evolution of the organization's cultural initiatives. This role manages end-to-end event production, specializing in high-fidelity sound for traditional performances and the deployment of digital platforms for member engagement. By overseeing audiovisual integration and modernizing heritage promotion through technology, the Lead ensures a seamless, professional experience for every cultural showcase.</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h4><i class="fas fa-music"></i> The Music and Band Club - Technical Team</h4>
+                                    <p>Manages the critical intersection of sound engineering and live production. This crew oversees high-fidelity audio reinforcement, including signal routing, digital mixing, and real-time frequency balancing. Beyond acoustics, they synchronize stage lighting, MIDI sequences, and visual effects to enhance performance. By mastering equipment logistics and troubleshooting, they ensure seamless, professional-grade output for every live set.</p>
+                                </div>
+                <div class="activity-item">
+                    <h4><i class="fas fa-futbol"></i> Football Team Captain</h4>
+                    <p>Led the school football team as captain, developing leadership, discipline, and team coordination skills.</p>
+                </div>
+                <div class="activity-item">
+                    <h4><i class="fas fa-calendar-alt"></i> Core Member – Event Organizing Committee</h4>
+                    <p>Played a key role in planning and executing school events, managing logistics, teamwork, and time-bound tasks.</p>
+                </div>
+                <div class="activity-item">
+                    <h4><i class="fas fa-code"></i> Hackathons & Coding Competitions</h4>
+                    <p>Participated in various coding challenges and AI-based hackathons at college.</p>
+                </div>
+            </div>
+        </section>
 
         <div class="social-icons">
             <a href="https://github.com/sus130" target="_blank"><i class="fab fa-github"></i></a>
